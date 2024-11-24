@@ -1,0 +1,124 @@
+<html>
+    <script>
+        const prefix = [
+            "Leaf",
+            "Cloud",
+            "Tiny",
+            "Little",
+            "Mouse",
+            "Rat",
+            "Fuzzy",
+            "Gray",
+            "Yellow",
+            "Moon",
+            "Blue",
+            "Fire",
+            "Tall",
+            "Loud",
+            "Bird",
+            "Bramble",
+            "Squirrel",
+            "Toad",
+            "Frog",
+            "Shell"
+        ];
+        const suffix = [
+            "whisker",
+            "heart",
+            "pool",
+            "fur",
+            "stripe",
+            "claw",
+            "nose",
+            "star",
+            "kit",
+            "paw",
+            "foot",
+            "tail",
+            "pelt",
+            "stream",
+            "step",
+            "feather",
+            "fall",
+            "flight",
+            "ear",
+            "storm"
+        ];
+
+        const clans = [
+            "ThunderClan",
+            "ShadowClan",
+            "SkyClan",
+            "WindClan",
+            "RiverClan"
+        ];
+
+    const getRandomIndex = (list) => {
+        return Math.round(Math.random() * (list.length-1));
+    }
+
+    const setText = (id, text) => {
+        const holder = document.getElementById(id);
+        holder.textContent = text;
+    };
+
+    const getRandomName = () => {
+        const prefixNumber = getRandomIndex(prefix);
+        const suffixNumber = getRandomIndex(suffix);
+        const clanNumber = getRandomIndex(clans);
+        console.log('prefix and suffix!', prefixNumber,suffixNumber);
+        setText('nameHolder',`${prefix[prefixNumber]}${suffix[suffixNumber]}`);
+        setText('clanHolder', clans[clanNumber]);
+    };
+    </script>
+<style>
+
+
+
+    #content {
+        width:100%;
+        margin-top:16px;
+        height: 90vh;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        align-content: center;
+    }
+
+    .holder {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        width: 100%;
+        text-align:center;
+        font-size: x-large;
+        font-family: sans-serif;
+        
+    }
+
+    .buttons {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: 50px;
+    }
+
+    .buttons button {
+        padding: 12px;
+        font-size: large;
+
+    }
+</style>
+    <body>
+        <div class="buttons">
+            <button onClick=getRandomName();>Get A Cat!</button>
+        </div>
+        <div id="content">
+            <div id="nameHolder" class="holder">
+            </div>
+            <div id="clanHolder"  class="holder">
+            </div>
+        </div>
+    </body>
+</html>
